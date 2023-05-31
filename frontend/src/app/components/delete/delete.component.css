@@ -1,0 +1,50 @@
+.form-out {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .5);
+}
+
+.form {
+	width: 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	background: white;
+	padding: 30px 20px;
+	border-radius: 16px;
+}
+
+.form__title {
+	margin-bottom: 20px;
+}
+
+.form__submit {
+	padding: 10px;
+	background: #04f;
+	color: white;
+	border: none;
+	transition: all .2s ease;
+	cursor: pointer;
+}
+
+.form__submit:hover,
+.form__submit:focus {
+	background: rgba(0, 68, 255, .8);
+}
+
+.form__not {
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+@media (max-width: 500px) {
+	.form {
+		width: 300px;
+	}
+}

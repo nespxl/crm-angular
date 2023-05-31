@@ -1,0 +1,17 @@
+<div>
+  <button class="modal-open" (click)="modalService.open()">Добавить пользователя</button>
+  <app-table></app-table>
+  <ng-container *ngIf="modalService.isVisible$ | async">
+    <app-modal></app-modal>
+  </ng-container>
+  <ng-container *ngIf="modalService.isVisibleChange$ | async">
+    <app-change-modal></app-change-modal>
+  </ng-container>
+  <ng-container *ngIf="modalService.isVisibleDelete$ | async">
+    <app-delete></app-delete>
+  </ng-container>
+  <ng-container *ngIf="modalService.isVisibleNotification$ | async">
+    <app-notification></app-notification>
+  </ng-container>
+  <router-outlet></router-outlet>
+</div>
