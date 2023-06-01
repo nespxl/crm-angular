@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 })
 export class EntryComponent implements OnInit {
   constructor(private data: DataService, private router: Router) {}
+  reAuth = false
 
   // Валидация формы
   form = new FormGroup({
@@ -44,12 +45,15 @@ export class EntryComponent implements OnInit {
 
   submit() {
     this.data.getUser().subscribe((users) => {
-      // Добавляем ключ в localStorage при успешной авторизации
-      localStorage.setItem('userCrmSystemAngular', 'userCrmSystemAngular')
       const user = users.filter((p) => p.name === this.form.value.mail)
       if (user.length === 1 && this.form.value.password === user[0].password) {
+        // Добавляем ключ в localStorage при успешной авторизации
+        localStorage.setItem('userCrmSystemAngular', 'userCrmSystemAngular')
         // и перенаправляем к таблице
         this.router.navigate(['crm'])
+      } else {
+        // Выкидываем ошибку, если почты или пароля не нашлось в бд
+        this.reAuth = true
       }
     })
   }

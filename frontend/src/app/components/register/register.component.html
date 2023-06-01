@@ -1,6 +1,7 @@
 <div class="container">
 	<form class="form" [formGroup]="form" (ngSubmit)="submit()">
 		<h1 class="form__title">Зарегистрироваться</h1>
+		<p *ngIf="reAuth" class="form__error">Аккаунт на эту почту уже зарегистрирован</p>
 		<label class="form__label">
 			<p class="form__label-title">Почта</p>
 			<p *ngIf="name.errors?.maxlength && name.touched" class="form__error">Максимум 16 символов</p>
