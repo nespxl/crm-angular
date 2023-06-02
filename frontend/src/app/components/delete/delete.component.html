@@ -1,7 +1,0 @@
-<div class="form-out" (click)="modalService.closeDelete()"></div>
-
-<form class="form" [formGroup]="form" (ngSubmit)="submit()">
-	<h2 class="form__title">Вы уверены?</h2>
-	<p class="form__not">Удалить пользователя под номером {{this.clickDelete.element$[0].id}}</p>
-	<input type="submit" value="Удалить" class="form__submit">
-</form>
